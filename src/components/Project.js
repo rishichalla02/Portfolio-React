@@ -27,9 +27,9 @@ export default function Project() {
     },
     {
       id: 4,
-      title: "Portfolio with React",
+      title: "Standard Portfolio",
       description: "A Newly updated portfolio with effect of Tailwind CSS.",
-      link: "https://example.com",
+      link: "https://github.com/rishichalla02/Portfolio-React",
       technologies: ["React", "Node.js", "Taileind CSS"],
     },
   ];
