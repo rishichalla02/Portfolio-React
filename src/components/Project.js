@@ -32,6 +32,13 @@ export default function Project() {
       link: "https://github.com/rishichalla02/Portfolio-React",
       technologies: ["React", "Node.js", "Taileind CSS"],
     },
+    {
+      id: 5,
+      title: "Weather App",
+      description: "A Weather App to check the weather of any place.",
+      link: "https://github.com/rishichalla02/Weather_App",
+      technologies: ["React", "OpenWeather - API", "Taileind CSS"],
+    },
   ];
 
   return (
@@ -56,7 +63,7 @@ export default function Project() {
                 {project.title}
               </h3>
               <p className="text-gray-600 mb-6 leading-relaxed">{project.description}</p>
-              
+
               <div className="flex flex-wrap gap-2 mb-6">
                 {project.technologies.map((tech, index) => (
                   <span
@@ -67,7 +74,7 @@ export default function Project() {
                   </span>
                 ))}
               </div>
-              
+
               <a
                 href={project.link}
                 target="_blank"
