@@ -39,6 +39,13 @@ export default function Project() {
       link: "https://github.com/rishichalla02/Weather_App",
       technologies: ["React", "OpenWeather - API", "Taileind CSS"],
     },
+    {
+      id: 6,
+      title: "Spotify_Clone_RC",
+      description: "A Spotify Clone with differnt styles.",
+      link: "https://github.com/rishichalla02/Spotify_Clone_RC",
+      technologies: ["HTML", "CSS", "JavaScript", "vite"],
+    },
   ];
 
   return (
