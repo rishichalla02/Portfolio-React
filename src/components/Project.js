@@ -46,6 +46,13 @@ export default function Project() {
       link: "https://github.com/rishichalla02/Spotify_Clone_RC",
       technologies: ["HTML", "CSS", "JavaScript", "vite"],
     },
+    {
+      id: 7,
+      title: "Book-Basket",
+      description: "Book-Basket personlize your books.",
+      link: "https://github.com/rishichalla02/Book-Basket",
+      technologies: ["React", "CSS", "JavaScript", "Firebase"],
+    },
   ];
 
   return (
