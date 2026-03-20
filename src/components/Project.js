@@ -20,8 +20,7 @@ export default function Project() {
     {
       id: 3,
       title: "Chess - 2025 (Chess Game)",
-      description:
-        "A Chess Game for Playing with your friends and family.",
+      description: "A Chess Game for Playing with your friends and family.",
       link: "https://github.com/rishichalla02/Chess-2025-Updated",
       technologies: ["HTML & CSS", "chessboaed.js", "JavaScript"],
     },
@@ -53,10 +52,21 @@ export default function Project() {
       link: "https://github.com/rishichalla02/Book-Basket",
       technologies: ["React", "CSS", "JavaScript", "Firebase"],
     },
+    {
+      id: 8,
+      title: "Learn-Skill-Track",
+      description:
+        "Learn-Skill-Track is Student Learning Platform to track their learning progress and gain knowledge.",
+      link: "https://github.com/rishichalla02/Student_Progress_Tracker-DB",
+      technologies: ["React", "CSS", "JavaScript", "Firebase"],
+    },
   ];
 
   return (
-    <div id="projects" className="min-h-screen w-full bg-gradient-to-b from-white to-gray-50 py-16">
+    <div
+      id="projects"
+      className="min-h-screen w-full bg-gradient-to-b from-white to-gray-50 py-16"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-teal-600 bg-clip-text text-transparent">
@@ -76,7 +86,9 @@ export default function Project() {
               <h3 className="text-2xl font-semibold text-gray-800 mb-4 group-hover:text-indigo-600 transition-colors duration-200">
                 {project.title}
               </h3>
-              <p className="text-gray-600 mb-6 leading-relaxed">{project.description}</p>
+              <p className="text-gray-600 mb-6 leading-relaxed">
+                {project.description}
+              </p>
 
               <div className="flex flex-wrap gap-2 mb-6">
                 {project.technologies.map((tech, index) => (
