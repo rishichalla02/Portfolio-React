@@ -72,7 +72,7 @@ function Footer() {
         </div>
 
         <div className="mt-8 pt-8 border-t border-white/10 text-center">
-          <p className="text-white/80">© 2025 Rishi Challa. All rights reserved.</p>
+          <p className="text-white/80">© 2026 Rishi Challa. All rights reserved.</p>
         </div>
       </div>
     </footer>

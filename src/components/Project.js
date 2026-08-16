@@ -29,7 +29,7 @@ export default function Project() {
       title: "Standard Portfolio",
       description: "A Newly updated portfolio with effect of Tailwind CSS.",
       link: "https://github.com/rishichalla02/Portfolio-React",
-      technologies: ["React", "Node.js", "Taileind CSS"],
+      technologies: ["React", "Node.js", "Tailwind CSS"],
     },
     {
       id: 5,
@@ -59,6 +59,22 @@ export default function Project() {
         "Learn-Skill-Track is Student Learning Platform to track their learning progress and gain knowledge.",
       link: "https://github.com/rishichalla02/Student_Progress_Tracker-DB",
       technologies: ["React", "CSS", "JavaScript", "Firebase"],
+    },
+    {
+      id: 9,
+      title: "Blog-Post-Thoughts",
+      description:
+        "A personal blog where I share my thoughts and experiences. And I created it during my internship at CodoMax Digital Solutions",
+      link: "https://github.com/rishichalla02/Blog-Post-Thoughts",
+      technologies: [
+        "MERN Stack",
+        "React",
+        "Node.js",
+        "MongoDB",
+        "Express.js",
+        "Tailwind CSS",
+        "Google AdSense",
+      ],
     },
   ];
 
