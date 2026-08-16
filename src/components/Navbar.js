@@ -8,7 +8,7 @@ export default function Navbar() {
     { name: "About", href: "#about" },
     { name: "Skills", href: "#skills" },
     { name: "Projects", href: "#projects" },
-    { name: "Contact", href: "#contact" }
+    { name: "Contact", href: "#contact" },
   ];
 
   const handleLinkClick = () => {
@@ -21,7 +21,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo and brand */}
           <div className="flex items-center">
-            <div className="flex-shrink-0">
+            <div className="shrink-0">
               <span className="text-2xl font-bold text-white bg-white bg-opacity-20 px-3 py-1 rounded-lg">
                 RC
               </span>
@@ -34,7 +34,7 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Navigation Links */}
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center gap-6">
             <ul className="flex space-x-8">
               {navigationLinks.map((link) => (
                 <li key={link.name}>

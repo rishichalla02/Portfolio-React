@@ -2,12 +2,12 @@ import { useState } from "react";
 
 export default function Skill() {
   const [skill, setSkill] = useState("technical");
-  
+
   const skills = {
     technical: [
       { name: "JavaScript", prof: 90 },
-      { name: "Node.js", prof: 75 },
-      { name: "React", prof: 65 },
+      { name: "Node.js", prof: 55 },
+      { name: "React", prof: 85 },
       { name: "HTML & CSS", prof: 90 },
       { name: "Bootstrap", prof: 50 },
       { name: "MongoDB", prof: 75 },
@@ -37,14 +37,18 @@ export default function Skill() {
   };
 
   return (
-    <div id="skills" className="min-h-screen w-full bg-gradient-to-b from-white to-gray-50 py-16">
+    <div
+      id="skills"
+      className="min-h-screen w-full bg-gradient-to-b from-white to-gray-50 py-16"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-teal-600 bg-clip-text text-transparent">
             My Skills
           </h2>
           <p className="mt-4 text-xl text-gray-600">
-            A comprehensive overview of my technical expertise and professional capabilities
+            A comprehensive overview of my technical expertise and professional
+            capabilities
           </p>
         </div>
 
@@ -83,16 +87,21 @@ export default function Skill() {
                 <h3 className="text-xl font-semibold text-gray-800">
                   {skillItem.name}
                 </h3>
-                <span className={`text-sm font-medium px-2 py-1 rounded-full ${
-                  skillItem.prof >= 90 ? 'bg-green-100 text-green-800' :
-                  skillItem.prof >= 75 ? 'bg-indigo-100 text-indigo-800' :
-                  skillItem.prof >= 60 ? 'bg-yellow-100 text-yellow-800' :
-                  'bg-red-100 text-red-800'
-                }`}>
+                <span
+                  className={`text-sm font-medium px-2 py-1 rounded-full ${
+                    skillItem.prof >= 90
+                      ? "bg-green-100 text-green-800"
+                      : skillItem.prof >= 75
+                        ? "bg-indigo-100 text-indigo-800"
+                        : skillItem.prof >= 60
+                          ? "bg-yellow-100 text-yellow-800"
+                          : "bg-red-100 text-red-800"
+                  }`}
+                >
                   {getProfiencyLabel(skillItem.prof)}
                 </span>
               </div>
-              
+
               <div className="space-y-2">
                 <div className="flex justify-between items-center">
                   <span className="text-sm font-semibold text-gray-700">
@@ -102,13 +111,14 @@ export default function Skill() {
                     {skillItem.prof}%
                   </span>
                 </div>
-                
+
                 <div className="h-3 bg-gray-200 rounded-full overflow-hidden">
                   <div
                     className={`h-full bg-gradient-to-r ${getColorByProficiency(skillItem.prof)} rounded-full transition-all duration-500 ease-out`}
-                    style={{ 
+                    style={{
                       width: `${skillItem.prof}%`,
-                      animation: `slideIn 1s ease-out ${index * 0.1}s both`
+                      "--target-width": `${skillItem.prof}%`,
+                      animation: `slideIn 1s ease-out ${index * 0.1}s both`,
                     }}
                   />
                 </div>
@@ -117,17 +127,6 @@ export default function Skill() {
           ))}
         </div>
       </div>
-      
-      <style jsx>{`
-        @keyframes slideIn {
-          from {
-            width: 0%;
-          }
-          to {
-            width: ${skills[skill].map(s => s.prof)}%;
-          }
-        }
-      `}</style>
     </div>
   );
 }

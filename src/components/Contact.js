@@ -23,7 +23,10 @@ export default function Contact() {
   };
 
   return (
-    <div id="contact" className="min-h-screen w-full bg-gradient-to-b from-white to-gray-50 py-16">
+    <div
+      id="contact"
+      className="min-h-screen w-full bg-gradient-to-b from-white to-gray-50 py-16"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-teal-600 bg-clip-text text-transparent">
@@ -37,10 +40,10 @@ export default function Contact() {
         {/* Contact form */}
         <div className="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-lg">
           <form onSubmit={handleSubmit} className="space-y-6">
-            <div>
+            <div className="flex items-center gap-4">
               <label
                 htmlFor="name"
-                className="block text-sm font-medium text-gray-700 mb-2"
+                className="w-24 shrink-0 text-sm font-medium text-gray-700"
               >
                 Name
               </label>
@@ -52,13 +55,13 @@ export default function Contact() {
                 value={formData.name}
                 onChange={handlechange}
                 required
-                className="mt-1 block w-full border border-gray-300 rounded-md p-3 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                className="flex-1 block w-full border border-gray-300 rounded-md p-3 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
               />
             </div>
-            <div>
+            <div className="flex items-center gap-4">
               <label
                 htmlFor="email"
-                className="block text-sm font-medium text-gray-700 mb-2"
+                className="w-24 shrink-0 text-sm font-medium text-gray-700"
               >
                 Email
               </label>
@@ -70,13 +73,13 @@ export default function Contact() {
                 value={formData.email}
                 onChange={handlechange}
                 required
-                className="mt-1 block w-full border border-gray-300 rounded-md p-3 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                className="flex-1 block w-full border border-gray-300 rounded-md p-3 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
               />
             </div>
-            <div>
+            <div className="flex items-start gap-4">
               <label
                 htmlFor="message"
-                className="block text-sm font-medium text-gray-700 mb-2"
+                className="w-24 shrink-0 text-sm font-medium text-gray-700 pt-3"
               >
                 Message
               </label>
@@ -88,7 +91,7 @@ export default function Contact() {
                 value={formData.message}
                 onChange={handlechange}
                 required
-                className="mt-1 block w-full border border-gray-300 rounded-md p-3 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 resize-vertical"
+                className="flex-1 block w-full border border-gray-300 rounded-md p-3 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 resize-vertical"
               />
             </div>
 

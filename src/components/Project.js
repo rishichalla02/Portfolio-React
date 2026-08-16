@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import { ExternalLink } from "lucide-react";
 
 export default function Project() {
@@ -8,6 +9,7 @@ export default function Project() {
       title: "Interlinked",
       description: "A Real time Web Chat site for communicating with peace.",
       link: "https://github.com/rishichalla02/Interlinked",
+      image: "https://opengraph.githubassets.com/1/rishichalla02/Interlinked",
       technologies: ["React", "NodeJs", "Firebase"],
     },
     {
@@ -15,6 +17,7 @@ export default function Project() {
       title: "Basic Portfolio",
       description: "A simple Portfolio site.",
       link: "https://github.com/rishichalla02/Portfolio_2.0",
+      image: "https://opengraph.githubassets.com/1/rishichalla02/Portfolio_2.0",
       technologies: ["HTML", "CSS"],
     },
     {
@@ -22,6 +25,8 @@ export default function Project() {
       title: "Chess - 2025 (Chess Game)",
       description: "A Chess Game for Playing with your friends and family.",
       link: "https://github.com/rishichalla02/Chess-2025-Updated",
+      image:
+        "https://opengraph.githubassets.com/1/rishichalla02/Chess-2025-Updated",
       technologies: ["HTML & CSS", "chessboaed.js", "JavaScript"],
     },
     {
@@ -29,6 +34,8 @@ export default function Project() {
       title: "Standard Portfolio",
       description: "A Newly updated portfolio with effect of Tailwind CSS.",
       link: "https://github.com/rishichalla02/Portfolio-React",
+      image:
+        "https://opengraph.githubassets.com/1/rishichalla02/Portfolio-React",
       technologies: ["React", "Node.js", "Tailwind CSS"],
     },
     {
@@ -36,13 +43,16 @@ export default function Project() {
       title: "Weather App",
       description: "A Weather App to check the weather of any place.",
       link: "https://github.com/rishichalla02/Weather_App",
-      technologies: ["React", "OpenWeather - API", "Taileind CSS"],
+      image: "https://opengraph.githubassets.com/1/rishichalla02/Weather_App",
+      technologies: ["React", "OpenWeather - API", "Tailwind CSS"],
     },
     {
       id: 6,
       title: "Spotify_Clone_RC",
       description: "A Spotify Clone with differnt styles.",
       link: "https://github.com/rishichalla02/Spotify_Clone_RC",
+      image:
+        "https://opengraph.githubassets.com/1/rishichalla02/Spotify_Clone_RC",
       technologies: ["HTML", "CSS", "JavaScript", "vite"],
     },
     {
@@ -50,6 +60,7 @@ export default function Project() {
       title: "Book-Basket",
       description: "Book-Basket personlize your books.",
       link: "https://github.com/rishichalla02/Book-Basket",
+      image: "https://opengraph.githubassets.com/1/rishichalla02/Book-Basket",
       technologies: ["React", "CSS", "JavaScript", "Firebase"],
     },
     {
@@ -58,6 +69,8 @@ export default function Project() {
       description:
         "Learn-Skill-Track is Student Learning Platform to track their learning progress and gain knowledge.",
       link: "https://github.com/rishichalla02/Student_Progress_Tracker-DB",
+      image:
+        "https://opengraph.githubassets.com/1/rishichalla02/Student_Progress_Tracker-DB",
       technologies: ["React", "CSS", "JavaScript", "Firebase"],
     },
     {
@@ -66,6 +79,8 @@ export default function Project() {
       description:
         "A personal blog where I share my thoughts and experiences. And I created it during my internship at CodoMax Digital Solutions",
       link: "https://github.com/rishichalla02/Blog-Post-Thoughts",
+      image:
+        "https://opengraph.githubassets.com/1/rishichalla02/Blog-Post-Thoughts",
       technologies: [
         "MERN Stack",
         "React",
@@ -77,6 +92,12 @@ export default function Project() {
       ],
     },
   ];
+  const [activeFilter, setActiveFilter] = useState("All");
+  const allTech = ["All", ...new Set(projects.flatMap((p) => p.technologies))];
+  const filteredProjects =
+    activeFilter === "All"
+      ? projects
+      : projects.filter((p) => p.technologies.includes(activeFilter));
 
   return (
     <div
@@ -92,40 +113,60 @@ export default function Project() {
             A showcase of projects that demonstrate my skills and creativity
           </p>
         </div>
+        <div className="flex flex-wrap justify-center gap-2 mb-10">
+          {allTech.map((tech) => (
+            <button
+              key={tech}
+              onClick={() => setActiveFilter(tech)}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${
+                activeFilter === tech
+                  ? "bg-indigo-600 text-white"
+                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+              }`}
+            >
+              {tech}
+            </button>
+          ))}
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-8">
-          {projects.map((project) => (
+          {filteredProjects.map((project) => (
             <div
               key={project.id}
-              className="bg-white rounded-xl shadow-lg hover:shadow-xl hover:border-2 hover:border-indigo-500 transition-all duration-300 p-6 group"
+              className="bg-white rounded-xl shadow-lg hover:shadow-xl hover:border-2 hover:border-indigo-500 transition-all duration-300 overflow-hidden group"
             >
-              <h3 className="text-2xl font-semibold text-gray-800 mb-4 group-hover:text-indigo-600 transition-colors duration-200">
-                {project.title}
-              </h3>
-              <p className="text-gray-600 mb-6 leading-relaxed">
-                {project.description}
-              </p>
-
-              <div className="flex flex-wrap gap-2 mb-6">
-                {project.technologies.map((tech, index) => (
-                  <span
-                    key={index}
-                    className="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm font-medium"
-                  >
-                    {tech}
-                  </span>
-                ))}
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-40 object-cover"
+              />
+              <div className="p-6">
+                <h3 className="text-2xl font-semibold text-gray-800 mb-4 group-hover:text-indigo-600 transition-colors duration-200">
+                  {project.title}
+                </h3>
+                <p className="text-gray-600 mb-6 leading-relaxed">
+                  {project.description}
+                </p>
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {project.technologies.map((tech, index) => (
+                    <span
+                      key={index}
+                      className="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm font-medium"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-indigo-600 hover:text-indigo-800 font-semibold transition-all duration-200 hover:underline"
+                >
+                  View Project
+                  <ExternalLink className="w-4 h-4 ml-2" />
+                </a>
               </div>
-
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center text-indigo-600 hover:text-indigo-800 font-semibold transition-all duration-200 hover:underline"
-              >
-                View Project
-                <ExternalLink className="w-4 h-4 ml-2" />
-              </a>
             </div>
           ))}
         </div>

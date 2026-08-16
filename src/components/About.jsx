@@ -1,21 +1,59 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 function About() {
+  const fullText = "Hi, I'm Rishi Challa";
+  const [typedText, setTypedText] = useState("");
+
+  useEffect(() => {
+    let i = 0;
+    const interval = setInterval(() => {
+      setTypedText(fullText.slice(0, i + 1));
+      i++;
+      if (i === fullText.length) clearInterval(interval);
+    }, 80);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <div className="min-h-screen w-full bg-gradient-to-b from-white to-gray-50">
+    <div
+      id="about"
+      className="min-h-screen w-full bg-gradient-to-b from-white to-gray-50"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        {/* Hero Section */}
         <div className="text-center space-y-8 mb-16">
           <h1 className="text-5xl font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-teal-500 bg-clip-text text-transparent">
-            Hi, I'm Rishi Challa
+            {typedText}
+            <span className="border-r-2 border-indigo-600 animate-pulse ml-1"></span>
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            I'm a MERN Stack Developer currently pursuing a Bachelor's degree in Information Technology
-            at Shantilal Shah Engineering College, Bhavnagar. I am in my 6th semester and have developed
-            a strong foundation in full-stack web development using MongoDB, Express.js, React.js, and
-            Node.js. Alongside my technical skills, I possess basic communication abilities and enjoy working
-            in collaborative environments to build efficient and scalable web applications.
+            I'm a MERN Stack Developer who recently completed my Bachelor's
+            degree in Information Technology at Shantilal Shah Engineering
+            College, Bhavnagar, with a CGPA of 8.20. I've developed a strong
+            foundation in full-stack web development using MongoDB, Express.js,
+            React.js, and Node.js. I recently completed a 3-month online
+            internship at Silver Touch Technologies as a Software Developer
+            Intern, where I built a student monitoring system using React.js and
+            Firebase. Alongside my technical skills, I possess strong
+            communication abilities and enjoy working in collaborative
+            environments to build efficient and scalable web applications.
           </p>
+          {/* Stats Strip */}
+          <div className="flex flex-wrap justify-center gap-8 sm:gap-16 mb-16">
+            {[
+              { label: "CGPA", value: "8.20" },
+              { label: "Certificates", value: "100+" },
+              { label: "Projects", value: "9" },
+            ].map((stat) => (
+              <div key={stat.label} className="text-center">
+                <div className="text-4xl font-bold text-indigo-600">
+                  {stat.value}
+                </div>
+                <div className="text-sm text-gray-500 font-medium">
+                  {stat.label}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Profile Image */}
@@ -30,18 +68,38 @@ function About() {
 
         {/* Professional Background */}
         <div className="bg-white p-8 rounded-xl shadow-lg mb-16">
-          <h2 className="text-3xl font-semibold text-gray-800 mb-6 text-center">
+          <h2 className="text-3xl font-semibold text-gray-800 mb-8 text-center">
             Professional Journey
           </h2>
-          <div className="space-y-6 text-left max-w-4xl mx-auto">
-            <p className="text-lg text-gray-600">
-              I started my journey in web development back in 2023, by some showing YouTube videos of basic fundamentals of Web Development,
-              created some basic projects.
-            </p>
-            <p className="text-lg text-gray-600">
-              Currently, I'm focused on building modern web applications using
-              React and Node.js. Recently I completed my Design Engineering Subject's Project whichi is Real Time Web Chat - Intelinked.
-            </p>
+          <div className="relative max-w-2xl mx-auto pl-8 border-l-2 border-indigo-200 space-y-10">
+            {[
+              {
+                year: "2023",
+                title: "Started Web Development",
+                desc: "Began learning fundamentals through YouTube and built basic first projects.",
+              },
+              {
+                year: "2024 – 2025",
+                title: "MERN Stack Focus",
+                desc: "Deepened skills in MongoDB, Express.js, React.js, and Node.js while building full-stack projects.",
+              },
+              {
+                year: "Now",
+                title: "CodoMax Internship Personal Project",
+                desc: "Completed Blog-Post-Thoughts, a internship project in my learning journey a full stack project with Google AdSense.",
+              },
+            ].map((item) => (
+              <div key={item.year} className="relative">
+                <span className="absolute left-[-2.6rem] top-1 w-4 h-4 rounded-full bg-indigo-600 border-4 border-white shadow"></span>
+                <span className="text-sm font-semibold text-indigo-600">
+                  {item.year}
+                </span>
+                <h3 className="text-xl font-semibold text-gray-800">
+                  {item.title}
+                </h3>
+                <p className="text-gray-600">{item.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -52,7 +110,8 @@ function About() {
               Frontend Development
             </h3>
             <p className="text-lg text-gray-600">
-              Creating beautiful and responsive user interfaces with HTML, CSS, JavaScript and React
+              Creating beautiful and responsive user interfaces with HTML, CSS,
+              JavaScript and React
             </p>
           </div>
           <div className="p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
@@ -60,8 +119,8 @@ function About() {
               Backend Development
             </h3>
             <p className="text-lg text-gray-600">
-              Building robust and scalable server solutions with Node.js,
-              as Database work there is MongoDB
+              Building robust and scalable server solutions with Node.js, as
+              Database work there is MongoDB
             </p>
           </div>
         </div>
@@ -77,15 +136,17 @@ function About() {
                 Online Internship on AI: Transformative Learning
               </h3>
               <p className="text-lg text-gray-600">
-                Attended many WorkShops like AI & Green Skills, React Portfolio Bootcamp
+                Attended many WorkShops like AI & Green Skills, React Portfolio
+                Bootcamp
               </p>
             </div>
             <div className="space-y-3">
               <h3 className="text-2xl text-purple-600 font-semibold">
-                100+ Certificates of Technical & Non - Techincal Activites 
+                100+ Certificates of Technical & Non - Techincal Activites
               </h3>
               <p className="text-lg text-gray-600">
-                Gaining Knowledge and Badges from Microsoft Learn & IBM SkillsBuild Program
+                Gaining Knowledge and Badges from Microsoft Learn & IBM
+                SkillsBuild Program
               </p>
             </div>
             <div className="space-y-3">
@@ -107,12 +168,21 @@ function About() {
             I'm always open to discussing new projects, creative ideas, or
             opportunities to be part of your vision.
           </p>
-          <a
-            href="#contact"
-            className="inline-block bg-white text-indigo-600 px-8 py-3 rounded-lg font-semibold text-lg hover:bg-opacity-90 transition-colors duration-200"
-          >
-            Get in Touch
-          </a>
+          <div className="flex flex-wrap justify-center gap-4">
+            <a
+              href="#contact"
+              className="inline-block bg-white text-indigo-600 px-8 py-3 rounded-lg font-semibold text-lg hover:bg-opacity-90 transition-colors duration-200"
+            >
+              Get in Touch
+            </a>
+            <a
+              href="/resume.pdf"
+              download
+              className="inline-block bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg font-semibold text-lg hover:bg-white hover:bg-opacity-10 transition-colors duration-200"
+            >
+              Download Resume
+            </a>
+          </div>
         </div>
       </div>
     </div>
